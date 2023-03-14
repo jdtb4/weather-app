@@ -4,9 +4,52 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Weather App</title>
   </head>
   <body>
-    <p>Hello World</p>
+    <div class="container">
+      <div class="container-buscador">
+        <i class="fa-solid fa-location"></i>
+        <input
+          type="text"
+          id="ciudad"
+          placeholder="Introduce una localización"
+        />
+        <button class="fa-solid fa-magnifying-glass" id="btn-buscar"></button>
+      </div>
+      <div class="container-tiempo">
+        <p class="temperatura"></p>
+        <p class="descripcion"></p>
+      </div>
+      <div class="detalles-tiempo">
+        <div class="humedad">
+          <i class="fa-solid fa-water"></i>
+          <div class="text">
+            <span></span>
+            <p class="humedad">Humedad</p>
+          </div>
+        </div>
+        <div class="viento">
+          <i class="fa-solid fa-wind"></i>
+          <div class="text">
+            <span></span>
+            <p class="viento">Viento</p>
+          </div>
+        </div>
+        <div class="precipitacion">
+          <i class="fa-solid fa-cloud-showers-water"></i>
+          <div class="text">
+            <span></span>
+            <p class="precipitacion">Precipitacion</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/a17f25f896.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

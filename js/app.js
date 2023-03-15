@@ -13,7 +13,7 @@ window.addEventListener("load", () => {
 // Funciones
 function buscarTiempo(e) {
   e.preventDefault();
-
+  //Validar que el input no este vacio
   const ciudad = document.querySelector(".container-buscador input").value;
   if (ciudad === "") {
     container.style.height = "530px";
@@ -21,7 +21,7 @@ function buscarTiempo(e) {
     error.style.scale = "1";
 
     mostrarError("Por favor ingresa una ciudad");
-
+    // Desaparece el mensaje de error despues de 3 segundos
     setTimeout(() => {
       container.style.height = "100px";
       error.style.display = "none";
@@ -29,7 +29,7 @@ function buscarTiempo(e) {
     }, 3000);
     return;
   }
-
+  // Consultar la API
   consultarAPI(ciudad);
 }
 
@@ -39,7 +39,7 @@ function mostrarError(mensaje) {
   alerta.textContent = mensaje;
 }
 
-/* function consultarAPI(ciudad) {
+function consultarAPI(ciudad) {
   const apiKey = "fb154294fc45dfa9596241167b0ac259";
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}`;
 
@@ -47,10 +47,16 @@ function mostrarError(mensaje) {
     .then((respuesta) => respuesta.json())
     .then((datos) => {
       if (datos.cod === "404") {
-        container.style.height = "400px";
-        tiempo.style.display = "none";
-        detallesTiempo.style.display = "none";
+        container.style.height = "530px";
         error.style.display = "block";
+        error.style.scale = "1";
+
+        mostrarError("Ciudad no encontrada");
+        setTimeout(() => {
+          container.style.height = "100px";
+          error.style.display = "none";
+          error.style.scale = "0";
+        }, 3000);
 
         return;
       }
@@ -62,4 +68,4 @@ function mostrasTiempo(datos) {
   tiempo.style.display = "block";
   detallesTiempo.style.display = "block";
   error.style.display = "none";
-} */
+}

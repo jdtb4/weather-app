@@ -5,11 +5,17 @@
   outline: 0;
   box-sizing: border-box;
 }
+header {
+  font-family: "Abril Fatface", cursive;
+  font-size: 2rem;
+  color: #fff;
+}
 body {
-  height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 80px;
   background: #23738b;
   font-family: "Roboto", sans-serif;
 }
@@ -21,7 +27,7 @@ body {
   padding: 28px 32px;
   overflow: hidden;
   border-radius: 16px;
-  transition: 0.5s ease-out;
+  transition: 0.3s ease-out;
 }
 .container-buscador {
   width: 100%;
@@ -46,7 +52,7 @@ body {
 }
 .container-buscador input::placeholder {
   color: #006280;
-  font-size: 18px;
+  font-size: 16px;
 }
 .container-buscador button {
   cursor: pointer;
@@ -55,7 +61,7 @@ body {
   color: #006280;
   background: #a3eaff77;
   border-radius: 50%;
-  font-size: 18px;
+  font-size: 16px;
   transition: 0.4s ease-out;
 }
 .container-buscador button:hover {
@@ -65,7 +71,6 @@ body {
   width: 100;
   text-align: center;
   scale: 0;
-  opacity: 0;
   display: none;
 }
 .not-found img {
@@ -120,7 +125,7 @@ body {
   font-size: 15px;
   font-weight: 500;
 }
-.fade-in {
+.fadeIn {
   animation: 0.5s fadeIn forwards;
   animation-delay: 0.5s;
 }

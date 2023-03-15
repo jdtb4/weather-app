@@ -12,6 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   background: #6cbed6;
+  font-family: "Roboto", sans-serif;
 }
 
 .container {
@@ -22,7 +23,6 @@ body {
   padding: 28px 32px;
   overflow: hidden;
   border-radius: 16px;
-  font-family: "Roboto", sans-serif;
   transition: 0.5s ease-out;
 }
 
@@ -59,4 +59,44 @@ body {
 }
 .container-buscador button:hover {
   background: #a3eaff;
+}
+
+.container-tiempo {
+  text-align: center;
+}
+.container-tiempo .temperatura {
+  position: relative;
+  color: #006280;
+  font-size: 4rem;
+  font-weight: 800;
+}
+
+.detalles-tiempo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.detalles-tiempo .humedad,
+.detalles-tiempo .viento,
+.detalles-tiempo .precipitacion {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  height: 100px;
+  font-weight: 600;
+  color: #006280;
+}
+.detalles-tiempo .viento p,
+.detalles-tiempo .humedad p,
+.detalles-tiempo .precipitacion p {
+  padding-left: 10px;
+}
+.detalles-tiempo .viento {
+  padding-left: 15px;
+}
+.detalles-tiempo span {
+  color: #006280;
+  font-size: 15px;
+  font-weight: 500;
 }

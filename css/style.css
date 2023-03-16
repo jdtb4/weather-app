@@ -87,14 +87,24 @@ body {
 .container-tiempo,
 .detalles-tiempo {
   display: none;
-  opacity: 0;
+  scale: 0;
 }
 
 .container-tiempo .temperatura {
+  display: flex;
+  justify-content: center;
   position: relative;
   color: #006280;
   font-size: 4rem;
   font-weight: 800;
+}
+.container-tiempo .descripcion {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  color: #006280;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 .detalles-tiempo {
   width: 100%;
@@ -103,8 +113,7 @@ body {
   margin-top: 10px;
 }
 .detalles-tiempo .humedad,
-.detalles-tiempo .viento,
-.detalles-tiempo .precipitacion {
+.detalles-tiempo .viento {
   display: flex;
   align-items: center;
   width: 50%;
@@ -113,8 +122,7 @@ body {
   color: #006280;
 }
 .detalles-tiempo .viento p,
-.detalles-tiempo .humedad p,
-.detalles-tiempo .precipitacion p {
+.detalles-tiempo .humedad p {
   padding-left: 10px;
 }
 .detalles-tiempo .viento {

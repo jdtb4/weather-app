@@ -60,12 +60,36 @@ function consultarAPI(ciudad) {
 
         return;
       }
-      mostrasTiempo(datos);
+      mostrarTiempo(datos);
     });
 }
-function mostrasTiempo(datos) {
-  container.style.height = "600px";
+function mostrarTiempo(datos) {
+  const img = document.querySelector(".container-tiempo img");
+  const temperatura = document.querySelector(".temperatura");
+  const descripcion = document.querySelector(".descripcion");
+  const humedad = document.querySelector(".humedad span");
+  const viento = document.querySelector(".viento span");
+  const precipitacion = document.querySelector(".precipitacion span");
+
+  container.style.height = "530px";
   tiempo.style.display = "block";
-  detallesTiempo.style.display = "block";
-  error.style.display = "none";
+  tiempo.style.scale = "1";
+  detallesTiempo.style.scale = "1";
+
+  //Mostrar los datos en el HTML
+  console.log(datos);
+  const {
+    main: { temp, humidity },
+    wind: { speed },
+    weather: [{ description, icon }],
+  } = datos;
+
+  const centigrados = kelvinACentigrados(temp);
+  img.src = `img/${icon}.png`;
+  temperatura.textContent = `${centigrados}°C`;
+  descripcion.textContent = description;
+  humedad.textContent = `${humidity}%`;
+  viento.textContent = `${speed} m/s`;
 }
+
+const kelvinACentigrados = (grados) => parseInt(grados - 273.15);

@@ -83,14 +83,30 @@ body {
   font-weight: 400;
   margin-top: 15px;
 }
-
 .container-tiempo,
 .detalles-tiempo {
   display: none;
   scale: 0;
 }
-
-.container-tiempo .temperatura {
+.container-tiempo {
+  display: flex;
+  justify-content: center;
+}
+.container-tiempo img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.descripcion {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 10px;
+  color: #006280;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.temperatura {
   display: flex;
   justify-content: center;
   position: relative;
@@ -98,41 +114,29 @@ body {
   font-size: 4rem;
   font-weight: 800;
 }
-.container-tiempo .descripcion {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  color: #006280;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
 .detalles-tiempo {
   width: 100%;
   display: flex;
+  padding: 0 20px;
+  margin-top: 20px;
   justify-content: space-between;
-  margin-top: 10px;
 }
-.detalles-tiempo .humedad,
-.detalles-tiempo .viento {
+.humedad,
+.viento {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  width: 50%;
-  height: 100px;
-  font-weight: 600;
   color: #006280;
+  font-size: 1rem;
 }
-.detalles-tiempo .viento p,
-.detalles-tiempo .humedad p {
-  padding-left: 10px;
-}
-.detalles-tiempo .viento {
-  padding-left: 15px;
-}
-.detalles-tiempo span {
+.text {
+  display: flex;
+  margin-top: 10px;
+  gap: 10px;
   color: #006280;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 1.5rem;
 }
+
 .fadeIn {
   animation: 0.5s fadeIn forwards;
   animation-delay: 0.5s;

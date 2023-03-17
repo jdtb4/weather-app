@@ -41,7 +41,7 @@ function mostrarError(mensaje) {
 
 function consultarAPI(ciudad) {
   const apiKey = "fb154294fc45dfa9596241167b0ac259";
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&lang=es&units=metric`;
 
   fetch(url)
     .then((respuesta) => respuesta.json())
@@ -69,7 +69,6 @@ function mostrarTiempo(datos) {
   const descripcion = document.querySelector(".descripcion");
   const humedad = document.querySelector(".humedad span");
   const viento = document.querySelector(".viento span");
-  const precipitacion = document.querySelector(".precipitacion span");
 
   container.style.height = "530px";
   tiempo.style.display = "block";
@@ -84,12 +83,10 @@ function mostrarTiempo(datos) {
     weather: [{ description, icon }],
   } = datos;
 
-  const centigrados = kelvinACentigrados(temp);
-  img.src = `img/${icon}.png`;
-  temperatura.textContent = `${centigrados}°C`;
+  const grados = parseInt(temp);
+  img.src = `https://openweathermap.org/img/wn/${icon}@4x.png`;
+  temperatura.textContent = `${grados}°C`;
   descripcion.textContent = description;
   humedad.textContent = `${humidity}%`;
   viento.textContent = `${speed} m/s`;
 }
-
-const kelvinACentigrados = (grados) => parseInt(grados - 273.15);

@@ -31,6 +31,8 @@ function buscarTiempo(e) {
   }
   // Consultar la API
   consultarAPI(ciudad);
+
+  limpiarInput();
 }
 
 // Inyecta un mensaje de error en el HTML
@@ -64,14 +66,15 @@ function consultarAPI(ciudad) {
     });
 }
 function mostrarTiempo(datos) {
+  //Seleccionamos los elementos del HTML
   const img = document.querySelector(".container-tiempo img");
   const temperatura = document.querySelector(".temperatura");
   const descripcion = document.querySelector(".descripcion");
   const humedad = document.querySelector(".humedad span");
   const viento = document.querySelector(".viento span");
 
+  //Expandimos el contenedor
   container.style.height = "530px";
-  tiempo.style.display = "block";
   tiempo.style.scale = "1";
   detallesTiempo.style.scale = "1";
 
@@ -83,10 +86,21 @@ function mostrarTiempo(datos) {
     weather: [{ description, icon }],
   } = datos;
 
+  //Damos formato a los datos
   const grados = parseInt(temp);
+  const velocidad = parseInt(speed * 3.6);
+  const descripcionClima =
+    description.charAt(0).toUpperCase() + description.slice(1);
+
+  //Inyectamos los datos en el HTML
   img.src = `https://openweathermap.org/img/wn/${icon}@4x.png`;
   temperatura.textContent = `${grados}°C`;
-  descripcion.textContent = description;
+  descripcion.textContent = descripcionClima;
   humedad.textContent = `${humidity}%`;
-  viento.textContent = `${speed} m/s`;
+  viento.textContent = `${velocidad} km/h`;
+}
+
+//limpiar el input
+function limpiarInput() {
+  buscador.value = "";
 }
